@@ -29,13 +29,13 @@
         display: inline-block;
         width: 50%;
         height: 100%;
-        border: 10px solid grey;
+        border: 1px solid grey;
         margin: 0;
         padding: 0;
       }
     </style>
   </head>
-  <body onload="ready()">
+  <body>
     <div id="container">
       <div id="editor">1</div>
       <iframe id="preview">2</iframe>
@@ -56,15 +56,17 @@
         editor.getSession().setMode("ace/mode/html");
         editor.setValue(
           `<!DOCTYPE html>
-    <html>
-    <head>
-    </head>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha3/css/bootstrap.min.css" />
+</head>
 
-    <body>
-        <p>Write something here ...</p>
-    </body>
+<body>
+    <p>Type something here...</p>
+    <button class="btn btn-success px-5">Save</button>
+</body>
 
-    </html>`,
+</html>`,
           1
         ); //1 = moves cursor to end
 
