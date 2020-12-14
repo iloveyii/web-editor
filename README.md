@@ -2,6 +2,8 @@
 
 A small web based editor using ace editor in JS.
 
+!(screenshot)[]
+
 ## How it works ?
 
 - There are two divs, the one on left is the editor instance
