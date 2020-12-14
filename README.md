@@ -2,7 +2,7 @@
 
 A small web based editor using ace editor in JS.
 
-!(screenshot)[]
+![screenshot](https://raw.githubusercontent.com/iloveyii/web-editor/master/screenshot.png)
 
 ## How it works ?
 
