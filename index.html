@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editor</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
     <style>
       html,
       body,
@@ -34,10 +35,62 @@
       }
     </style>
   </head>
-  <body>
+  <body onload="ready()">
     <div id="container">
       <div id="editor">1</div>
-      <div id="preview">2</div>
+      <iframe id="preview">2</iframe>
     </div>
+
+    <script>
+      function update() {
+        var idoc = document.getElementById("preview").contentWindow.document;
+
+        idoc.open();
+        idoc.write(editor.getValue());
+        idoc.close();
+      }
+
+      function setupEditor() {
+        window.editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.getSession().setMode("ace/mode/html");
+        editor.setValue(
+          `<!DOCTYPE html>
+    <html>
+    <head>
+    </head>
+
+    <body>
+        <p>Write something here ...</p>
+    </body>
+
+    </html>`,
+          1
+        ); //1 = moves cursor to end
+
+        editor.getSession().on("change", function () {
+          update();
+        });
+
+        editor.focus();
+
+        editor.setOptions({
+          fontSize: "16pt",
+          showLineNumbers: false,
+          showGutter: false,
+          vScrollBarAlwaysVisible: true,
+          enableBasicAutocompletion: false,
+          enableLiveAutocompletion: false,
+        });
+
+        editor.setShowPrintMargin(false);
+        editor.setBehavioursEnabled(false);
+      }
+
+      (function () {
+        setupEditor();
+        update();
+      })();
+    </script>
   </body>
 </html>
