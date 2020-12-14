@@ -58,12 +58,18 @@
           `<!DOCTYPE html>
 <html>
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha3/js/bootstrap.min.js"><\/script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha3/css/bootstrap.min.css" />
 </head>
 
 <body>
     <p>Type something here...</p>
     <button class="btn btn-success px-5">Save</button>
+
+    <script>
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', () => alert('clicked'));
+    <\/script>
 </body>
 
 </html>`,
